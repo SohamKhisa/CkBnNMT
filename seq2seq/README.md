@@ -33,23 +33,22 @@ To see list of all available options, do `python pipeline.py -h`
 * For multilingual training on single GPU, a minimal example is as follows:
 ```bash
 $ python pipeline.py \
-    --model_name_or_path "google/mt5-base" \
-    --data_dir "XLSum_input/multilingual" \
-    --output_dir "XLSum_output/multilingual" \
-    --lr_scheduler_type="transformer" \
-    --learning_rate=1 \
-    --warmup_steps 5000 \
-    --weight_decay 0.01 \ 
-    --per_device_train_batch_size=2 \
-    --gradient_accumulation_steps=16  \
-    --max_steps 50000 \
-    --save_steps 5000 \
-    --evaluation_strategy "no" \
-    --logging_first_step \
-    --adafactor \
-    --label_smoothing_factor 0.1 \
-    --upsampling_factor 0.5 \
-    --do_train
+  --model_name_or_path "google/mt5-base" \
+  --data_dir "dataset/train/many-to-bn" \
+  --output_dir "output/many-to-bn" \
+  --lr_scheduler_type="transformer" \
+  --learning_rate=1 \
+  --warmup_steps 5000 \
+  --weight_decay 0.01 \ 
+  --gradient_accumulation_steps=16  \
+  --max_steps 50000 \
+  --save_steps 5000 \
+  --evaluation_strategy "no" \
+  --logging_first_step \
+  --adafactor \
+  --label_smoothing_factor 0.1 \
+  --upsampling_factor 0.2 \
+  --do_train
 ```
 * For multilingual training on multiple nodes / GPUs launch the script with `torch.distributed.launch`, i.e.
 ```bash
