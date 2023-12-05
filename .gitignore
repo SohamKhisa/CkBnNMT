@@ -15,6 +15,10 @@ logs/
 lightning_logs/
 lang_code_data/
 
+#dataset
+seq2seq/dataset/
+seq2seq/output/
+
 # Distribution / packaging
 .Python
 build/
